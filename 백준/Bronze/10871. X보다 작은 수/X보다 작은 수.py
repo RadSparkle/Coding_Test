@@ -1,10 +1,11 @@
-n,x = map(int,input().split())
-num_list = list(map(int,input().split(' ')))
-result = []
+N, X = map(int, input().split())
 
-for i in num_list :
-   if x > i :
-      result.append(i)
+A = list(map(int, input().split(' ')))
 
-for k in result :
-   print(k,end=' ')
+result = list()
+for i in A:
+    if i < X:
+        result.append(i)
+
+for i in result:
+    print(i, end=' ')
