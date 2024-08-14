@@ -1,12 +1,10 @@
 n = int(input())
-score_list = list(map(int,input().split()))
-fake_list = []
-m = max(score_list)
 
-for i in range(n) :
-    fake_list.append(score_list[i]/m*100)
+a = list(map(int, input().split()))
+new_list = list()
 
-fake_score = sum(fake_list)
-result = fake_score/n
+max_score = max(a)
 
-print(result)
+for i in a:
+    new_list.append((i/max_score)*100)
+print(sum(new_list)/len(new_list))
