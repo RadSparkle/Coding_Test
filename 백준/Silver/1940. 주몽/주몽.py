@@ -1,20 +1,20 @@
-import sys
+N = int(input())
+M = int(input())
+list = list(map(int, input().split()))
 
-n = int(sys.stdin.readline().rstrip('\n'))
-m = int(sys.stdin.readline().rstrip('\n'))
-n_list = list(map(int,sys.stdin.readline().split()))
+list.sort()
 
-n_list.sort()
-start=0
-end=n-1
-cnt=0
-while start<end:
-    if n_list[start] + n_list[end] == m:
-        start+=1
-        end-=1
-        cnt+=1
-    if n_list[start] + n_list[end] < m:
-        start+=1
-    if n_list[start] + n_list[end] > m:
-        end-=1
-print(cnt)
+start = 0
+end = N - 1
+count = 0
+
+while start != end:
+    if list[start] + list[end] == M:
+        count += 1
+        start += 1
+    elif list[start] + list[end] > M:
+        end -= 1
+    elif list[start] + list[end] < M:
+        start += 1
+
+print(count)
