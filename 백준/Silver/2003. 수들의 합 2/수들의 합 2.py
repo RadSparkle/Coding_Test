@@ -1,20 +1,16 @@
-N, M = map(int, input().split())
-nums = list(map(int, input().split()))
+data, target = map(int, input().split())
 
-left, right = 0, 1
-cnt = 0
-while right <= N and left <= right:
+list = list(map(int,input().split()))
 
-    total = sum(nums[left:right])
+interval_sum = 0
+end = 0
+count = 0
+for start in range(data):
+    while interval_sum < target and end < data:
+        interval_sum += list[end]
+        end+=1
+    if interval_sum == target:
+        count += 1
+    interval_sum -= list[start]
 
-    if total == M:
-        cnt += 1
-
-        right += 1
-
-    elif total < M:
-        right += 1
-
-    else:
-        left += 1
-print(cnt)
+print(count)
