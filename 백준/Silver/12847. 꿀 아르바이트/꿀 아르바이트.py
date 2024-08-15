@@ -1,21 +1,13 @@
-n, m = map(int, input().split())
-money_list = list(map(int, input().split()))
+import sys
 
-window_len = m
-window = 0
+N, M = map(int, sys.stdin.readline().split())
+numbers = list(map(int, sys.stdin.readline().split()))
 
-for i in range(window_len):
-    window += money_list[i]
+step = M
+window = sum(numbers[:step])
+answer = window
 
-MAX = window
-start = 0
-end = m
-
-while end < len(money_list):
-    window -= money_list[start]
-    window += money_list[end]
-    start += 1
-    end += 1
-    if window > MAX:
-        MAX = window
-print(MAX)
+for i in range(step, N):
+    window += numbers[i] - numbers[i - step]
+    answer = max(answer, window)
+print(answer)
