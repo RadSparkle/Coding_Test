@@ -1,2 +1,2 @@
-word = input().split()
-print(len(word))
+
+print(len(list(input().split())))
