@@ -1,11 +1,13 @@
-T = int(input())
+import sys
+N = int(input())
 
-for _ in range(T):
-    string = list(map(str, input().split(' ')))
+for _ in range(N):
+    str = sys.stdin.readline().rstrip()
+    words = list(str.split())
+    reverse_words = []
 
-    answer = []
-    for i in string:
-        answer.append(i[::-1])
+    for word in words:
+        reverse_words.append(word[::-1])
 
-    for i in answer:
-        print(i, end = ' ')
+    answer = " ".join(reverse_words)
+    print(answer)
