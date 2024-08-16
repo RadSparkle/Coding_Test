@@ -10,11 +10,7 @@ for _ in range(N):
 
 words_count = collections.Counter(word_list)
 
-for k, v in sorted(list(words_count.items())):
-    word_dict[k] = v
+word_list = sorted(words_count.items(), key=lambda x: (-x[1], -len(x[0]), x[0]))
 
-sorted_dict = dict(sorted(word_dict.items(), key=lambda item: len(item[0]), reverse=True))
-sorted_dict = dict(sorted(sorted_dict.items(), key=lambda item: item[1], reverse=True))
-
-for k, v in list(sorted_dict.items()):
-    print(k)
+for i in word_list:
+    print(i[0])
