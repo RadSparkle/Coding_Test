@@ -1,7 +1,4 @@
-n = int(input())
-num_list = str(input())
+N = int(input())
 
-num_sum = 0
-for i in num_list :
-    num_sum += int(i)
-print(num_sum)
+a = [int(i) for i in input()]
+print(sum(a))
