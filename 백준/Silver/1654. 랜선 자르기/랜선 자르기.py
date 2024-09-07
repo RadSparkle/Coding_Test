@@ -1,20 +1,19 @@
-k, n = map(int,input().split())
-lan_list = []
+n, m = map(int, input().split())
+lst = []
+for _ in range(n):
+    lst.append(int(input()))
 
-for _ in range(k):
-    lan_list.append(int(input()))
+start = 1
+end = max(lst)
 
-lan_avg = int(sum(lan_list) / n)
+while start<=end:
+    mid = (start+end) // 2
+    total = 0
+    for i in lst:
+        total += i // mid
 
-left, right= 1, max(lan_list)
-
-while left <= right:
-    cnt = 0
-    mid = (left + right) // 2
-    for i in lan_list:
-        cnt+= i // mid
-    if cnt >= n:
-        left = mid + 1
+    if total >= m:
+        start = mid + 1
     else:
-        right = mid - 1
-print(right)
+        end = mid - 1
+print(end)
